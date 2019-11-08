@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery.js"></script>
+    <script src="client.js"></script>
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <h1>Salary Calculator</h1>
+    <!-- The application should have an input form that collects _employee first name, 
+        last name, ID number, job title, annual salary_. -->
+        <section>
+            <form>
+                <div>
+                    <label>First Name:</label>
+                    <input type="text" id="first-name-in" />
+                </div>
+                <div>
+                    <label>Last Name:</label>
+                    <input type="text" id="last-name-in"/>
+                </div>
+                <div>
+                    <label>ID Number:</label>
+                    <input type="text" id="id-in"/>
+                </div>
+                <div>
+                    <label>Job Title:</label>
+                    <input type="text" id="job-title-in"/>
+                </div>
+                <div>
+                    <label >Annual Salary:</label>
+                    <input type="text" id="annual-salary-in"/>
+                </div>
+                <button id="add-employee-btn">Add Employee</button>
+            </form>
+        </section>
+        <section>
+            <h2>Employees</h2>
+            <table >
+                <thead>
+                    <tr><th>First Name</th> <th>Last Name</th> <th>ID Number</th> 
+                        <th>Job Title</th> <th>Annual Salary</th> <th> &nbsp;</th></tr>
+                </thead>
+                <tbody id="employee-table">
+                    <!-- JQuery will fill this in... -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <div>
+                <h2>Total Monthly: $<span id="monthlyout"></span></h2>
+            </div>
+        </section>
+</body>
+</html>

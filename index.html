@@ -4,55 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <script src="jquery.js"></script>
     <script src="client.js"></script>
     <title>Salary Calculator</title>
 </head>
 <body>
-    <h1>Salary Calculator</h1>
+    <header class="p-3 mb-2 bg-secondary text-white text-center">
+        <h1>Salary Calculator</h1>
+    </header>
     <!-- The application should have an input form that collects _employee first name, 
         last name, ID number, job title, annual salary_. -->
-        <section>
-            <form>
-                <div>
-                    <label>First Name:</label>
-                    <input type="text" id="first-name-in" />
+    <main class="container">
+        <section class="p-3 mb-2 bg-dark text-white">
+                <form>
+                    <div class="form-group">
+                        <label for="first-name-in">First Name:</label>
+                        <input class="form-control" type="text" id="first-name-in" />
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name-in">Last Name:</label>
+                        <input class="form-control" type="text" id="last-name-in"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="id-in">ID Number:</label>
+                        <input class="form-control" type="text" id="id-in"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-title-in">Job Title:</label>
+                        <input class="form-control" type="text" id="job-title-in"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="annual-salary-in">Annual Salary:</label>
+                        <input class="form-control" type="text" id="annual-salary-in"/>
+                    </div>
+                    <button type="submit" id="add-employee-btn" class="p-3 mb-2 bg-success text-white btn btn-primary">
+                        Add Employee</button>
+                </form>
+            </section>
+            <section>
+                <h2 >Employees</h2>
+                <table class="table table-striped table-dark table-bordered table-hover">
+                    <thead>
+                        <tr><th>First Name</th> <th>Last Name</th> <th>ID Number</th> 
+                            <th>Job Title</th> <th>Annual Salary</th> <th> &nbsp;</th></tr>
+                    </thead>
+                    <tbody id="employee-table">
+                        <!-- JQuery will fill this in... -->
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <div class="nav justify-content-end" id="color-change">
+                    <h2 id="monthlyHeader">Total Monthly: $<span id="monthlyout"></span></h2>
                 </div>
-                <div>
-                    <label>Last Name:</label>
-                    <input type="text" id="last-name-in"/>
-                </div>
-                <div>
-                    <label>ID Number:</label>
-                    <input type="text" id="id-in"/>
-                </div>
-                <div>
-                    <label>Job Title:</label>
-                    <input type="text" id="job-title-in"/>
-                </div>
-                <div>
-                    <label >Annual Salary:</label>
-                    <input type="text" id="annual-salary-in"/>
-                </div>
-                <button id="add-employee-btn">Add Employee</button>
-            </form>
-        </section>
-        <section>
-            <h2>Employees</h2>
-            <table >
-                <thead>
-                    <tr><th>First Name</th> <th>Last Name</th> <th>ID Number</th> 
-                        <th>Job Title</th> <th>Annual Salary</th> <th> &nbsp;</th></tr>
-                </thead>
-                <tbody id="employee-table">
-                    <!-- JQuery will fill this in... -->
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <div>
-                <h2>Total Monthly: $<span id="monthlyout"></span></h2>
-            </div>
-        </section>
+            </section>
+    </main>
 </body>
 </html>

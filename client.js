@@ -1,9 +1,10 @@
 $(document).ready(onReady);
 
 function onReady(){
-    $('#add-employee-btn').on('click', addEmployee);
-    $( '#employee-table' ).on('click', '.delete', removeEmployee, )
+    $( '#add-employee-btn').on( 'click', addEmployee );
+    $( '#employee-table' ).on( 'click', '.delete', removeEmployee );
     calculateMonthlySalary();
+    $( '#monthlyout').on( 'click', changeColorRed );
 }
 
 let employees = [];
@@ -75,4 +76,10 @@ function calculateMonthlySalary(){
     let monthlyBudget = $( '#monthlyout' );
     monthlyBudget.empty();
     monthlyBudget.append( monthlySalary );
+    //changes color red if monthly salary totals are over 20000
+    if ( monthlySalary >= 20000){
+        $( '#monthlyout' ).addClass('p-3 mb-2 bg-danger text-white');
+        $( '#monthlyHeader' ).addClass('p-3 mb-2 bg-danger text-white');
+    }
 }
+

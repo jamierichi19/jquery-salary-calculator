@@ -4,7 +4,7 @@ function onReady(){
     $( '#add-employee-btn').on( 'click', addEmployee );
     $( '#employee-table' ).on( 'click', '.delete', removeEmployee );
     calculateMonthlySalary();
-    $( '#monthlyout').on( 'click', changeColorRed );
+    $( '#monthly-out').on( 'click', changeColorRed );
 }
 
 let employees = [];
@@ -36,12 +36,14 @@ function addEmployee(event){
     $( '#job-title-in' ).val('');
     $( '#annual-salary-in' ).val('');
     // call function to show employees in the table
+    // call function to calculate the monthly salary
     showEmployees( employees );
     calculateMonthlySalary();
 }
+
 function showEmployees( array ){
     //empty the table
-    $( '#employee-table').empty();
+    $( '#employee-table' ).empty();
     //loop for each employee in the array and 
     //add a new <tr> and <td> for each category
     for ( let employee of array ){
@@ -51,7 +53,7 @@ function showEmployees( array ){
                 <td>${employee.lName}</td>
                 <td>${employee.idNumber}</td>
                 <td>${employee.jobTitle}</td>
-                <td>${employee.annualSalary}</td>
+                <td>$${employee.annualSalary}</td>
                 <td><button class="delete">Delete</button></td>
             </tr>`);
     }
@@ -61,7 +63,7 @@ function removeEmployee(){
     //declare button variable to this
     let button = $( this );
     //removes tr element
-    button.closest('tr').remove();
+    button.closest( 'tr' ).remove();
 }
 
 function calculateMonthlySalary(){
@@ -71,15 +73,17 @@ function calculateMonthlySalary(){
         totalSalary += Number( employees[i].annualSalary );
     }// end loop
     // divide totalSalary by 12 to get monthly salary
-    const monthlySalary = totalSalary / 12;
+    let monthlySalary = totalSalary / 12;
+     //make monthly salary be fixed to two decimals
+    let monthlySalaryFixed = monthlySalary.toFixed( 2 );
     //display monthly budget
-    let monthlyBudget = $( '#monthlyout' );
+    let monthlyBudget = $( '#monthly-out' );
     monthlyBudget.empty();
-    monthlyBudget.append( monthlySalary );
+    monthlyBudget.append( monthlySalaryFixed );
     //changes color red if monthly salary totals are over 20000
     if ( monthlySalary >= 20000){
-        $( '#monthlyout' ).addClass('p-3 mb-2 bg-danger text-white');
-        $( '#monthlyHeader' ).addClass('p-3 mb-2 bg-danger text-white');
+        $( '#monthly-out' ).addClass( 'p-3 mb-2 bg-danger text-white' );
+        $( '#monthly-header' ).addClass( 'p-3 mb-2 bg-danger text-white' );
     }
 }
 

@@ -56,7 +56,7 @@ function showEmployees( array ){
                 <td>${employee.lName}</td>
                 <td>${employee.idNumber}</td>
                 <td>${employee.jobTitle}</td>
-                <td>$${employee.annualSalary}</td>
+                <td>$${numberWithCommas( employee.annualSalary )}</td>
                 <td><button class="delete">Delete</button></td>
             </tr>`);
     }
@@ -82,11 +82,17 @@ function calculateMonthlySalary(){
     //display monthly budget
     let monthlyBudget = $( '#monthly-out' );
     monthlyBudget.empty();
-    monthlyBudget.append( monthlySalaryFixed );
+    monthlyBudget.append( numberWithCommas( monthlySalaryFixed) );
+    
     //changes color red if monthly salary totals are over 20000
     if ( monthlySalary >= 20000){
         $( '#monthly-out' ).addClass( 'p-3 mb-2 bg-danger text-white' );
         $( '#monthly-header' ).addClass( 'p-3 mb-2 bg-danger text-white' );
     }
+}
+
+function numberWithCommas( number ) {
+    //uses regex to add commas between numbers 
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 

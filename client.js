@@ -19,16 +19,20 @@ function addEmployee(event){
     let jobTitle = $( '#job-title-in' ).val();
     let annualSalary = $( '#annual-salary-in' ).val();
 
-    //push new employee object to the employees array
-    employees.push(
-        {
-            fName: fName,
-            lName: lName,
-            idNumber: idNumber,
-            jobTitle: jobTitle,
-            annualSalary: annualSalary
-        }
-    )
+    if ( fName === '' || lName === '' || idNumber === '' || jobTitle === '' || annualSalary === '' ){
+        alert( 'Please fill out the form completely.');
+    } else {
+        //push new employee object to the employees array
+        employees.push(
+            {
+                fName: fName,
+                lName: lName,
+                idNumber: idNumber,
+                jobTitle: jobTitle,
+                annualSalary: annualSalary
+            }
+        )
+    }
     //clear out the inputs
     $( '#first-name-in' ).val('');
     $( '#last-name-in' ).val('');

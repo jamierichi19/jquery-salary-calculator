@@ -4,7 +4,6 @@ function onReady(){
     $( '#add-employee-btn').on( 'click', addEmployee );
     $( '#employee-table' ).on( 'click', '.delete', removeEmployee );
     calculateMonthlySalary();
-    $( '#monthly-out').on( 'click', changeColorRed );
 }
 
 let employees = [];
